@@ -104,3 +104,38 @@ Route::get('ins_dashboard/report', function () {
 Route::get('ins_dashboard/report_result', function () {
     return view('ins_dashboard/report_result');
 });
+
+//User Dashboard route start from here
+Route::get('user_dashboard', function () {
+    return view('user_dashboard/index');
+});
+Route::get('user_dashboard/apply_policies', function () {
+    return view('user_dashboard/apply_policies');
+});
+Route::get('user_dashboard/pending_policy', function () {
+    return view('user_dashboard/pending_policy');
+});
+Route::get('user_dashboard/approved_policies', function () {
+    return view('user_dashboard/approved_policies');
+});
+Route::get('user_dashboard/rejected_policies', function () {
+    return view('user_dashboard/rejected_policies');
+});
+Route::get('user_dashboard/support_ticket', function () {
+    return view('user_dashboard/support_ticket');
+});
+Route::get('user_dashboard/add_ticket_categories', function () {
+    return view('user_dashboard/add_ticket_categories');
+});
+Route::get('user_dashboard/report', function () {
+    return view('user_dashboard/report');
+});
+Route::get('user_dashboard/report_result', function () {
+    return view('user_dashboard/report_result');
+});
+Route::get('user_dashboard/profile', function () {
+    return view('user_dashboard/profile');
+});
+Route::get('user_dashboard/notifications', function () {
+    return view('user_dashboard/notifications');
+});
