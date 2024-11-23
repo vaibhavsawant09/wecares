@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('claim_status', ['none', 'claimed', 'stopped'])->default('none');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('policy_id')->references('id')->on('insurance_policies')->onDelete('cascade');

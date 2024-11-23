@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('report_type', ['user', 'policy', 'ticket']);
             $table->longText('data');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('generated_by')->references('id')->on('users')->onDelete('cascade');
         });

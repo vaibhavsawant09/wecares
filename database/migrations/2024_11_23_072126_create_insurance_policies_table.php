@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('coverage_amount', 10, 2);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
         });

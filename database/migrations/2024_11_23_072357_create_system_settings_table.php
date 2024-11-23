@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('setting_value');
             $table->unsignedBigInteger('updated_by');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
