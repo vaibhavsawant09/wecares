@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'status'
     ];
 
     /**
@@ -42,4 +44,39 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'created_by');
+    }
+
+    public function subCategories()
+    {
+        return $this->hasMany(SubCategory::class, 'created_by');
+    }
+
+    public function policies()
+    {
+        return $this->hasMany(InsurancePolicy::class, 'created_by');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(SupportTicket::class, 'user_id');
+    }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class, 'generated_by');
+    }
+
+    public function settings()
+    {
+        return $this->hasMany(SystemSetting::class, 'updated_by');
+    }
 }

@@ -139,3 +139,7 @@ Route::get('user_dashboard/profile', function () {
 Route::get('user_dashboard/notifications', function () {
     return view('user_dashboard/notifications');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
