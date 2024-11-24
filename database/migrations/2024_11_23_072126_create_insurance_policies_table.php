@@ -19,7 +19,8 @@ return new class extends Migration
             $table->decimal('premium', 10, 2);
             $table->decimal('coverage_amount', 10, 2);
             $table->integer('tenure');
-            $table->string('interval');
+            $table->string('interval')->default('YEAR');
+            $table->string('currency')->default('INR');
             $table->tinyInteger('status');
             $table->date('created_date');
             $table->unsignedBigInteger('created_by')->nullable();

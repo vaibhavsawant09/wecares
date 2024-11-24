@@ -21,6 +21,8 @@ class InsurancePolicySeeder extends Seeder
                 'premium' => 10000.00,
                 'coverage_amount' => 500000.00,
                 'tenure' => 1,
+                'interval' => 'YEAR',
+                'currency' => 'INR',
                 'status' => 1, // Assuming Active = 1
                 'created_date' => '2024-01-01',
                 'created_by' => 1, // Assuming Admin/User ID 1 is the creator
@@ -37,6 +39,8 @@ class InsurancePolicySeeder extends Seeder
                 'premium' => 15000.00,
                 'coverage_amount' => 1000000.00,
                 'tenure' => 5,
+                'interval' => 'YEARS',
+                'currency' => 'INR',
                 'status' => 1, // Assuming Active = 1
                 'created_date' => '2024-02-15',
                 'created_by' => 1, // Assuming Admin/User ID 1 is the creator
@@ -53,6 +57,8 @@ class InsurancePolicySeeder extends Seeder
                 'premium' => 8000.00,
                 'coverage_amount' => 300000.00,
                 'tenure' => 2,
+                'interval' => 'YEARS',
+                'currency' => 'INR',
                 'status' => 1, // Assuming Active = 1
                 'created_date' => '2024-02-20',
                 'created_by' => 1, // Assuming Admin/User ID 1 is the creator

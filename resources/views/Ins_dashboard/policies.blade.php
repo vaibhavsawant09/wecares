@@ -84,11 +84,6 @@
                 </div>
             </div>
             @endforeach
-
-            <!-- Policy 2 -->
-           
-
-            <!-- Policy 3 -->
             
         </div>
     </main>

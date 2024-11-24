@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -47,7 +47,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function member(){
+    public function member()
+    {
         return $this->hasOne(Member::class);
     }
     public function role()
@@ -67,9 +68,14 @@ class User extends Authenticatable
 
     public function policies()
     {
-        return $this->hasMany(InsurancePolicy::class, 'created_by');
+        return $this->hasMany(InsurancePolicy::class);
     }
 
+    public function pendingPolicies()
+    {
+        return $this->belongsToMany(InsurancePolicy::class, 'policy_holders')
+            ->wherePivot('status', PolicyHolder::PENDING);
+    }
     public function tickets()
     {
         return $this->hasMany(SupportTicket::class, 'user_id');

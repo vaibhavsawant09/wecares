@@ -69,4 +69,5 @@ class InsurancePolicyController extends Controller
         $policy->delete();
         return response()->json(['message' => 'Policy deleted successfully']);
     }
+    
 }

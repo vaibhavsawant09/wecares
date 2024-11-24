@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 @include('user_dashboard/header')
+
 <!-- Sidebar -->
 @include('user_dashboard/sider')
 
@@ -19,7 +21,6 @@
                 <div>
                     <h2 class="text-2xl font-bold text-white">Policy {{$key+1}}</h2>
                 </div>
-                <span class="bg-white text-[#114A43] px-3 py-1 rounded-full text-sm font-semibold cursor-pointer">EDIT</span>
             </div>
             <div class="text-white space-y-3 mb-6">
                 <p><strong>Name:</strong> {{$policy->policy_name}}</p>
@@ -32,28 +33,14 @@
             </div>
             <div class="border-t pt-4 text-white">
                 <p><strong>Date Created:</strong> {{$policy->created_date}}</p>
-                <form action="{{ route('payment.initiate') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="insurance_policy_id" value="{{$policy->id}}">
-                    <button type="submit" class="bg-white text-[#114A43] px-4 py-2 rounded-full font-semibold text-sm hover:bg-hover-accent transition">
-                        Apply
-                    </button>
-                </form>
             </div>
         </div>
         @endforeach
     </div>
-    @if(session('error'))
-    <script type="text/javascript">
-        alert('{{ session('error') }}');
-    </script>
-    @endif
 </main>
 
 
-
 <!-- JavaScript -->
-
 <script>
     // Toggle mobile menu
     document.getElementById('menu-toggle').addEventListener('click', () => {

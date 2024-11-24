@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,47 +110,75 @@ Route::get('ins_dashboard/report_result', function () {
 });
 
 //User Dashboard route start from here
-Route::get('user_dashboard', function () {
-    return view('user_dashboard/index');
-});
-Route::get('user_dashboard/plans', function () {
-    return view('user_dashboard/plans');
-});
-Route::get('user_dashboard/apply_policies', function () {
-    return view('user_dashboard/apply_policies');
-});
-Route::get('user_dashboard/pending_policy', function () {
-    return view('user_dashboard/pending_policy');
-});
-Route::get('user_dashboard/approved_policies', function () {
-    return view('user_dashboard/approved_policies');
-});
-Route::get('user_dashboard/rejected_policies', function () {
-    return view('user_dashboard/rejected_policies');
-});
-Route::get('user_dashboard/support_ticket', function () {
-    return view('user_dashboard/support_ticket');
-});
-Route::get('user_dashboard/add_ticket_categories', function () {
-    return view('user_dashboard/add_ticket_categories');
-});
-Route::get('user_dashboard/report', function () {
-    return view('user_dashboard/report');
-});
-Route::get('user_dashboard/report_result', function () {
-    return view('user_dashboard/report_result');
-});
-Route::get('user_dashboard/profile', function () {
-    $user  = Auth::user();
-    $member = $user->member;
-    $data = compact('user','member');
-    
-    return view('user_dashboard/profile')->with($data);
-});
-Route::get('user_dashboard/notifications', function () {
-    return view('user_dashboard/notifications');
-});
+Route::prefix('user_dashboard')->name('user_dashboard.')
+    ->middleware('auth')->group(function () {
+        Route::get('/', function () {
+            return view('user_dashboard/index');
+        })->name('index');
+
+        Route::get('/plans', function () {
+            $policies = App\Models\InsurancePolicy::all();
+            $data = compact('policies');
+            return view('user_dashboard/plans')->with($data);
+        })->name('plans');
+
+        Route::get('/apply_policies', function () {
+            return view('user_dashboard/apply_policies');
+        })->name('apply_policies');
+
+        Route::get('pending_policies', function () {
+            $user = Auth::user();
+            $policies = $user->pendingPolicies;
+            $data = compact('policies');
+            return view('user_dashboard/pending_policies')->with($data);
+        })->name('pending_policies');
+
+        Route::get('/approved_policies', function () {
+            return view('user_dashboard/approved_policies');
+        })->name('approved_policies');
+
+        Route::get('/rejected_policies', function () {
+            return view('user_dashboard/rejected_policies');
+        })->name('rejected_policies');
+
+        Route::get('/support_ticket', function () {
+            return view('user_dashboard/support_ticket');
+        })->name('support_ticket');
+
+        Route::get('/add_ticket_categories', function () {
+            return view('user_dashboard/add_ticket_categories');
+        })->name('add_ticket_categories');
+
+        Route::get('/report', function () {
+            return view('user_dashboard/report');
+        })->name('report');
+
+        Route::get('/report_result', function () {
+            return view('user_dashboard/report_result');
+        })->name('report_result');
+
+        Route::get('/profile', function () {
+            $user  = Auth::user();
+            $member = $user->member;
+            $data = compact('user', 'member');
+
+            return view('user_dashboard/profile')->with($data);
+        })->name('profile');
+
+        Route::get('/notifications', function () {
+            return view('user_dashboard/notifications');
+        })->name('notifications');
+    });
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Grouping by Controller and URL Prefix
+Route::controller(PaymentController::class)->prefix('payment')
+    ->name('payment.')
+    ->group(function () {
+        Route::post('initiate', 'initiatePayment')->name('initiate');
+        Route::get('success', 'paymentSuccess')->name('success');
+        Route::post('webhook', 'webhookHandler')->name('webhook');
+    });

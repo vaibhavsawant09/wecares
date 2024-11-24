@@ -9,11 +9,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PolicyHolder extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['user_id', 'policy_id', 'status', 'claim_status'];
 
-    public function user()
+    const PENDING = 1;
+    const APPROVED = 2;
+    const REJECTED = 3;
+    const NONE = 1;
+    const CLAIMED = 2;
+    const STOPPED = 3;
+    protected $guarded = ['id'];
+
+    public function member()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Member::class);
     }
 
     public function policy()
