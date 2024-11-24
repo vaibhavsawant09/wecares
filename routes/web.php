@@ -70,7 +70,9 @@ Route::get('ins_dashboard/add_ticket_categories', function () {
     return view('ins_dashboard/add_ticket_categories');
 });
 Route::get('ins_dashboard/policies', function () {
-    return view('ins_dashboard/policies');
+    $policies = App\Models\InsurancePolicy::all();
+    $data = compact('policies');
+    return view('ins_dashboard/policies')->with($data);
 });
 Route::get('ins_dashboard/add_policy', function () {
     return view('ins_dashboard/add_policy');
