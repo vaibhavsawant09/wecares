@@ -110,6 +110,9 @@ Route::get('ins_dashboard/report_result', function () {
 Route::get('user_dashboard', function () {
     return view('user_dashboard/index');
 });
+Route::get('user_dashboard/plans', function () {
+    return view('user_dashboard/plans');
+});
 Route::get('user_dashboard/apply_policies', function () {
     return view('user_dashboard/apply_policies');
 });
