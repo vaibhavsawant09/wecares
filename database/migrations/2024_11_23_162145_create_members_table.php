@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('state');
             $table->string('postal_code');
             $table->string('country');
+            $table->boolean('terms_and_conditions')->default(false);
+            $table->boolean('privacy_policy')->default(false);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id') // Define foreign key constraint

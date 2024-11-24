@@ -18,7 +18,14 @@ return new class extends Migration
             $table->text('details');
             $table->decimal('premium', 10, 2);
             $table->decimal('coverage_amount', 10, 2);
-            $table->unsignedBigInteger('created_by');
+            $table->integer('tenure');
+            $table->string('interval')->default('YEAR');
+            $table->string('currency')->default('INR');
+            $table->tinyInteger('status');
+            $table->date('created_date');
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');

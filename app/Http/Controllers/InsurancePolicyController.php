@@ -31,6 +31,10 @@ class InsurancePolicyController extends Controller
             'premium' => $request->premium,
             'coverage_amount' => $request->coverage_amount,
             'created_by' => Auth::id(),
+            'tenure' => '',
+            'status' => 1,
+            'created_date' => '',
+            'updated_by' => '',
         ]);
 
         return response()->json($policy);
@@ -65,4 +69,5 @@ class InsurancePolicyController extends Controller
         $policy->delete();
         return response()->json(['message' => 'Policy deleted successfully']);
     }
+    
 }

@@ -35,7 +35,7 @@
                     </button>
                 </a>
                 <div class="w-8 h-8 rounded-full bg-accent overflow-hidden">
-                    <a href="{{url('user_dashboard/profile')}}"><img src="{{url('images/466132576_1700000777457980_7640509984743529447_n.jpg')}}" alt="Profile Image" class="w-auto h-full object-cover"></a>
+                    <a href="{{url('user_dashboard/profile')}}"><img src="{{url( 'images/466132576_1700000777457980_7640509984743529447_n.jpg')}}" alt="Profile Image" class="w-auto h-full object-cover"></a>
                 </div>
 
             </div>

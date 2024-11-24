@@ -14,14 +14,18 @@ return new class extends Migration
         Schema::create('policy_holders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('policy_id');
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->enum('claim_status', ['none', 'claimed', 'stopped'])->default('none');
+            $table->unsignedBigInteger('member_id');
+            $table->unsignedBigInteger('insurance_policy_id');
+            $table->unsignedBigInteger('insurance_order_id');
+            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('claim_status')->default(1);
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('policy_id')->references('id')->on('insurance_policies')->onDelete('cascade');
+            // $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('insurance_policy_id')->references('id')->on( 'insurance_policies')->onDelete('cascade');
+            // $table->foreign('insurance_order_id')->references('id')->on( 'insurance_orders')->onDelete('cascade');
         });
     }
 

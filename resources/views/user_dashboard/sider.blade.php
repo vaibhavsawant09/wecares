@@ -10,6 +10,14 @@
             </a>
 
             <!-- Categories -->
+            <a href="{{url('user_dashboard/plans')}}" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 10h18M3 15h18M3 20h18"></path>
+                </svg>
+                <span>Plans</span>
+            </a>
+
+            <!-- Categories -->
             <a href="{{url('user_dashboard/apply_policies')}}" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 10h18M3 15h18M3 20h18"></path>
@@ -18,7 +26,7 @@
             </a>
 
             <!-- Sub-Categories -->
-            <a href="{{url('user_dashboard/pending_policy')}}" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700">
+            <a href="{{url('user_dashboard/pending_policies')}}" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 6h14M5 12h14M5 18h14"></path>
                 </svg>

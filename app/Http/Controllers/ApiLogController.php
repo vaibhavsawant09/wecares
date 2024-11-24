@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Member;
-use App\Http\Requests\StoreMemberRequest;
-use App\Http\Requests\UpdateMemberRequest;
+use App\Models\ApiLog;
+use App\Http\Requests\StoreApiLogRequest;
+use App\Http\Requests\UpdateApiLogRequest;
 
-class MemberController extends Controller
+class ApiLogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function applyPolicy()
-    {
-        //
-    }
     public function index()
     {
         //
@@ -31,7 +27,7 @@ class MemberController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMemberRequest $request)
+    public function store(StoreApiLogRequest $request)
     {
         //
     }
@@ -39,7 +35,7 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Member $member)
+    public function show(ApiLog $apiLog)
     {
         //
     }
@@ -47,7 +43,7 @@ class MemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Member $member)
+    public function edit(ApiLog $apiLog)
     {
         //
     }
@@ -55,7 +51,7 @@ class MemberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMemberRequest $request, Member $member)
+    public function update(UpdateApiLogRequest $request, ApiLog $apiLog)
     {
         //
     }
@@ -63,7 +59,7 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Member $member)
+    public function destroy(ApiLog $apiLog)
     {
         //
     }

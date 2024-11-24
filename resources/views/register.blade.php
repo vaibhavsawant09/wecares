@@ -167,8 +167,8 @@
                     <form action="register_process.php" method="POST" enctype="multipart/form-data">
                         <!-- Personal Information -->
                         <div class="form-group">
-                            <label for="fullname">Full Name</label>
-                            <input type="text" id="fullname" name="fullname" placeholder="First Name, Middle Name, Last Name" required>
+                            <label for="full_name">Full Name</label>
+                            <input type="text" id="full_name" name="full_name" placeholder="First Name, Middle Name, Last Name" required>
                         </div>
                         <div class="form-group">
                             <label for="dob">Date of Birth</label>
