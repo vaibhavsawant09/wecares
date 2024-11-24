@@ -135,7 +135,11 @@ Route::get('user_dashboard/report_result', function () {
     return view('user_dashboard/report_result');
 });
 Route::get('user_dashboard/profile', function () {
-    return view('user_dashboard/profile');
+    $user  = Auth::user();
+    $member = $user->member;
+    $data = compact('user','member');
+    
+    return view('user_dashboard/profile')->with($data);
 });
 Route::get('user_dashboard/notifications', function () {
     return view('user_dashboard/notifications');

@@ -27,28 +27,24 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <!-- First Name -->
             <div class="flex justify-between items-center">
-                <span class="font-semibold text-accent">First Name</span>
-                <span class="text-gray-300">We</span>
+                <span class="font-semibold text-accent">Full Name</span>
+                <span class="text-gray-300">{{$member->full_name}}</span>
             </div>
-            <!-- Last Name -->
-            <div class="flex justify-between items-center">
-                <span class="font-semibold text-accent">Last Name</span>
-                <span class="text-gray-300">Cares</span>
-            </div>
+
             <!-- Gender -->
             <div class="flex justify-between items-center">
                 <span class="font-semibold text-accent">Gender</span>
-                <span class="text-gray-300">Male</span>
+                <span class="text-gray-300">{{$member->gender}}</span>
             </div>
             <!-- Phone -->
             <div class="flex justify-between items-center">
                 <span class="font-semibold text-accent">Phone</span>
-                <span class="text-gray-300">7887380238</span>
+                <span class="text-gray-300">{{$member->phone}}</span>
             </div>
             <!-- Email -->
             <div class="flex justify-between items-center">
                 <span class="font-semibold text-accent">Email</span>
-                <span class="text-gray-300">support@wecares.in</span>
+                <span class="text-gray-300">{{$member->email}}</span>
             </div>
         </div>
 

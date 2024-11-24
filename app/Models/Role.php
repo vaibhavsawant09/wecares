@@ -9,6 +9,9 @@ use Spatie\Permission\Models\Role as SpatieRole;
 class Role extends SpatieRole
 {
     use HasFactory;
+    const ADMIN = 1;
+    const STAFF = 2;
+    const MEMBER = 3;
     protected $guarder = ['id'];
     
 }
